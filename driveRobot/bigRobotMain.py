@@ -77,85 +77,114 @@ if __name__ == '__main__':
         try:
             start_time = time.time()
 
-            if False:
+            if True:
                 robot.driveRobot(distance=10, speed=15, sensors=[sensorLeft, sensorCenter])
 
                 sleep(0.5)
-                print ("\n")
 
                 robot.turnRobot(degrees=90, speed=5, direction=left)
 
                 sleep(1)
-                print ("\n")
 
-                robot.driveRobot(distance=50, speed=20, sensors=[sensorLeft, sensorCenter, sensorRight])
+                robot.driveRobot(distance=52, speed=20, sensors=[sensorLeft, sensorCenter, sensorRight])
 
                 sleep(0.5)
-                print ("\n")
 
                 robot.turnRobot(degrees=45, speed=5, direction=left)
 
                 sleep(0.5)
-                print ("\n")
 
                 # Before pipe approaching
-                robot.driveRobot(distance=14, speed=5, sensors=[])
+                robot.driveRobot(distance=11, speed=5, sensors=[])
 
                 sleep(0.5)
-                print ("\n")
 
-                robot.turnRobot(degrees=47, speed=3, direction=left)
+                robot.turnRobot(degrees=45, speed=3, direction=left)
 
                 sleep(0.5)
-                print ("\n")
 
                 extra.motorsOn()
 
                 sleep(0.5)
-                print ("\n")
 
-                robot.driveRobot(distance=1, speed=1, sensors=[])
+                robot.driveRobot(distance=3, speed=1, sensors=[])
 
                 sleep(2)
-                print ("\n")
 
                 extra.valveRelease()
 
                 sleep(4)
-                print ("\n")
 
                 extra.motorsOff()
 
-                # Leaving First Recuperator
+                # Leaving First recuperator
                 robot.driveBack(distance=3, speed=2)
                 sleep(1)
-                print ("\n")
 
                 robot.turnRobot(degrees=90, speed=15, direction=right)
 
                 sleep(1)
-                print ("\n")
 
                 robot.driveRobot(distance=70, speed=20, sensors=[sensorCenter, sensorRight])
 
                 sleep(0.5)
-                print ("\n")
+
+                # Bee deploy
+                servoBee.turn(165)
 
                 robot.driveRobot(distance=20, speed=20, sensors=[])
 
-                #Bee deploy
-                servoBee.turn(165)
+                sleep(0.5)
+
+                robot.turnRobot(degrees=90, speed=8, direction=right)
+
+                sleep(1)
+
+                # Bee close
+                servoBee.turn(50)
 
                 robot.turnRobot(degrees=90, speed=15, direction=right)
 
-            #
-            if False:
+            # if True:
+                sleep(0.5)
+
+                robot.driveRobot(distance=10, speed=10, sensors=[sensorLeft, sensorCenter, sensorRight])
+
+                sleep(0.5)
+
+                robot.turnRobot(degrees=90, speed=15, direction=left)
+
+                sleep(0.5)
+
+                robot.driveRobot(distance=25, speed=10, sensors=[sensorCenter, sensorRight])
+
+                sleep(0.5)
+
+                robot.turnRobot(degrees=45, speed=15, direction=left)
+
+                sleep(0.5)
+
+                robot.driveRobot(distance=14, speed=10, sensors=[])
+
+                sleep(0.5)
+
+                robot.turnRobot(degrees=55, speed=4, direction=left)
+
+                sleep(0.5)
+
+                servoPipe.turn(13)
 
                 sleep(1)
-                servoPipe.turn(13)
-                sleep(1)
+
                 servoArm.turn(degrees=85)
 
+                sleep(0.5)
+
+                extra.valveRelease()
+
+                sleep(5)
+
+                servoArm.turn(degrees=160)
 
 
         except KeyboardInterrupt:
